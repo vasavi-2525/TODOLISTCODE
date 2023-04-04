@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<style>
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		input[type="text"], input[type="email"], select {
+			width: 200px;
+			padding: 5px;
+			margin-bottom: 10px;
+			border: 1px solid #CCC;
+			border-radius: 5px;
+			box-sizing: border-box;
+		}
+         <body>  {
+                 background-color: lightblue;
+                display: inline-block;
+                border: 30px solid indigo;
+                padding: 30px;
+}</body>
+
+
+		input[type="submit"] {
+			padding: 10px;
+			background-color:pink;
+			color: purple;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		table {
+			border-collapse: collapse;
+			margin-top: 20px;
+		}
+
+		table td, table th {
+			padding: 5px;
+			border: 1px solid #CCC;
+			text-align: left;
+		}
+
+		table th {
+			background-color: light blue;
+		}
+	</style>
+</head>
+<body>
+	<h1>Registration Form</h1>
+	<form id="registration-form" onsubmit="return false;">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+
+            <label for="website">website:</label>
+		<input type="website" id="email" name="website" required>
+
+            <label for="imagelink">imagelink:</label>
+		<input type="imagelink" id="imagelink" name="imagelink" required>
+
+		<label>Gender:</label>
+            <input type="radio" name="gender" value="male" checked> Male<br><br>
+            <input type="radio" name="gender" value="female"> Female
+
+          
+
+
+          <label>Skills:</label>
+           <input type="checkbox" name="skills[]" value="html"> HTML
+           <input type="checkbox" name="skills[]" value="css"> CSS
+           <input type="checkbox" name="skills[]" value="javascript"> JavaScript
+           <input type="checkbox" name="skills[]" value="php"> PHP
+           <input type="checkbox" name="skills[]" value="python"> Python
+ 
+
+	      </select><br><br>
+		<input type="submit" value="enroll student" onclick="submitForm()">
+            <input type="submit" value="clear" onclick="submitForm()">
+
+	</form>
+	<div id="registration-data"></div>
+	<script>
+		function submitForm() {
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var gender = document.getElementById("gender").value;
+			var registrationData = document.getElementById("registration-data");
+
+			var table = document.createElement("table");
+			var tbody = document.createElement("tbody");
+
+			var tr = document.createElement("tr");
+			var th1 = document.createElement("th");
+			th1.textContent = "Name:";
+			var td1 = document.createElement("td");
+			td1.textContent = name;
+			tr.appendChild(th1);
+			tr.appendChild(td1);
+			tbody.appendChild(tr);
+
+			var tr = document.createElement("tr");
+			var th2 = document.createElement("th");
+			th2.textContent = "Email:";
+			var td2 = document.createElement("td");
+			td2.textContent = email;
+			tr.appendChild(th2);
+			tr.appendChild(td2);
+			tbody.appendChild(tr);
+
+			var tr = document.createElement("tr");
+			var th3 = document.createElement("th");
+			th3.textContent = "Gender:";
+			var td3 = document.createElement("td");
+			td3.textContent = gender;
+			tr.appendChild(th3);
+			tr.appendChild(td3);
+			tbody.appendChild(tr);
+
+			table.appendChild(tbody);
+			registrationData.innerHTML = "";
+			registrationData.appendChild(table);
+		}
+	</script>
+</body>
+</html>
